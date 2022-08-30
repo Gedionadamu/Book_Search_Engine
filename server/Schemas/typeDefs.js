@@ -32,15 +32,15 @@ const typeDefs = gql`
     user(_id: String!): User
     me: User
     books: [Book]
-    book(_id: String!); User
+    book(_id: String!): User
     
     
   }
   type Mutation {
-    deleteBook(bookId):Book
+    deleteBook(bookId: ID!):Book
     saveBook(_id: String!, authors: String, description:String!,bookId:String!, image:String, link:String, title: String ): Book
-    createUser(name: String!, email: String!, password: String!): TokenUser
-    createUserNoToken(name: String!, email: String!, password: String!): User
+    createUser(username: String!, email: String!, password: String!): TokenUser
+    createUserNoToken(username: String!, email: String!, password: String!): User
     login(email: String!, password: String!): TokenUser
   }
 `;
