@@ -2,17 +2,20 @@ import { gql } from '@apollo/client';
 
 // me query for login 
 export const GET_ME = gql`
-    query me {
-        me {
-            _id
-            username
-            savedBooks {
-                bookId
-                authors
-                description
-                title 
-                image
-            }
-        }
-    } 
+{
+    user {
+      _id
+      username
+      email
+      bookCount
+      savedBooks {
+        authors
+        description
+        bookId
+        image
+        link
+        title
+      }
+    }
+  }
 `;

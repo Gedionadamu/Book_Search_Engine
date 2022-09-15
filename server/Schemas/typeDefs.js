@@ -7,11 +7,11 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    bookCount: String!
+    bookCount: Int
     savedBooks: [Book]
     # no password field, need to keep passwords hidden
   }
-  type TokenUser {
+  type Auth {
     token: ID!
     user: User
   }
@@ -40,7 +40,7 @@ const typeDefs = gql`
    
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    saveBook(book: BookInput): User
+    saveBook(authors : String, description: String!, title:String, bookId:String!, image:String, link:String): User
     removeBook(bookId: String): User
   }
 `;
